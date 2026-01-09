@@ -10,14 +10,12 @@ class CourseManagementSystem:
         if course_id not in self.courses:
             return []
         
-        all_prereqs = set()
-        
+        all_prereqs = set() 
         def collect(c_id):
             for prereq in self.courses[c_id]["prereq"]:
                 if prereq  not in all_prereqs:
                     all_prereqs.add(prereq)
                     collect(prereq)
-        
         collect(course_id)
         return list(all_prereqs)
 
