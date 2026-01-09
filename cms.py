@@ -25,7 +25,7 @@ class CourseManagementSystem:
         if course_id == prerequisite_id:
             return False
         if course_id in self.listPrerequisites(prerequisite_id):
-            print(f"Error: Adding {prerequisite_id} as a prereq to {course_id} creates a cycle.")
+            print(f"Adding {prerequisite_id} as a prerequisite to {course_id} creates a cycle.")
             return False
         
         self.courses[course_id]["prereq"].add(prerequisite_id)
